@@ -149,7 +149,7 @@ kyee:
         flywaySqlLocation: db/local
 #      - 更多继续写下去
 ```
-示例:[demo](http://s.kyee.com.cn/projects/COM/repos/ky-common-framework/browse/framework-demo/framework-demo-mutidb-jta?at=refs%2Fheads%2Fdev)
+示例:[demo](https://github.com/flycleaner/kyee-common-framework/tree/master/framework-demo/framework-demo-mutidb)
 ###3.3 @EnableCORS 开启跨域访问过滤器
 
  js会有跨域限制，开启了该过滤器后，默认会允许所有跨域请求。
@@ -244,11 +244,11 @@ public class SecurityConfig extends AbstractSecurityConfig{
 
 
 **3.4.3 定制UserDetailsService:**		
-在验证用户的凭证是否有效的时候，用户可以自己定义验证方式,传入参数为credentials(format: `username/password@domain`,但是不保证用户输入格式是正确的)。默认提供了解析credentials的工具:[PharseUtil](http://s.kyee.com.cn/projects/COM/repos/ky-common-framework/browse/framework-core/src/main/java/com/kyee/framework/core/web/security/utils/PharseUtil.java?at=refs%2Fheads%2Fdev)可以用来解析username,password,domain以及一些可能有用的功能，解析失败返回null，所以可以根据函数返回值是否为null来判断传入参数格式是否正确。
+在验证用户的凭证是否有效的时候，用户可以自己定义验证方式,传入参数为credentials(format: `username/password@domain`,但是不保证用户输入格式是正确的)。默认提供了解析credentials的工具:[PharseUtil](https://github.com/flycleaner/kyee-common-framework/blob/master/framework-core/src/main/java/com/kyee/framework/core/web/security/utils/PharseUtil.java)可以用来解析username,password,domain以及一些可能有用的功能，解析失败返回null，所以可以根据函数返回值是否为null来判断传入参数格式是否正确。
 
 UserDetailsService的函数`loadUserByUsername`返回的UserDetail需要有***正确的用户名，密码，权限***。
 
-kyee-seurity提供了UserDetials的一个实现:[com.kyee.framework.core.web.security.user.User](http://s.kyee.com.cn/projects/COM/repos/ky-common-framework/browse/framework-core/src/main/java/com/kyee/framework/core/web/security/user/User.java?at=refs%2Fheads%2Fdev),用户权限GrantedAuthority的实现:[com.kyee.framework.core.web.security.user.UserAuthority](http://s.kyee.com.cn/projects/COM/repos/ky-common-framework/browse/framework-core/src/main/java/com/kyee/framework/core/web/security/user/UserAuthority.java?at=dev)
+kyee-seurity提供了UserDetials的一个实现:[com.kyee.framework.core.web.security.user.User](https://github.com/flycleaner/kyee-common-framework/blob/master/framework-core/src/main/java/com/kyee/framework/core/web/security/user/User.java),用户权限GrantedAuthority的实现:[com.kyee.framework.core.web.security.user.UserAuthority](https://github.com/flycleaner/kyee-common-framework/blob/master/framework-core/src/main/java/com/kyee/framework/core/web/security/user/UserAuthority.java)
 
 ***示例***
 
