@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kyee.framework.demo.mutidb.jta.repository.source1.IUserInfoDao">
+
+    <!--查询用户openId -->
+    <select id="getOpenIdByCardNo" parameterType="String" resultType="com.kyee.framework.demo.mutidb.jta.domain.UserInfo">
+      SELECT medicalCardNo,openId,status FROM t_user WHERE medicalCardNo=#{medicalCardNumber} and status=3
+     </select>
+
+    <insert id="insert" parameterType="com.kyee.framework.demo.mutidb.jta.domain.UserInfo">
+        INSERT INTO t_user(openId,medicalCardNo,status) VALUES (#{openId},#{medicalCardNo},#{status})
+    </insert>
+</mapper>

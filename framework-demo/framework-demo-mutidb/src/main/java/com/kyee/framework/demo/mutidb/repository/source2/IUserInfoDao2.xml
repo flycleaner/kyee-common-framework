@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kyee.framework.demo.mutidb.repository.source2.IUserInfoDao2">
+
+    <!--查询用户openId -->
+    <select id="getUserByid" parameterType="String" resultType="com.kyee.framework.demo.mutidb.domain.UserHospistal">
+      SELECT openId,hospitalId FROM t_user_hospital WHERE id=#{id}
+     </select>
+    <insert id="insert" parameterType="com.kyee.framework.demo.mutidb.domain.UserHospistal">
+        INSERT INTO t_user_hospital(openId,hospitalId) VALUES (#{openId},#{hospitalId})
+    </insert>
+
+</mapper>

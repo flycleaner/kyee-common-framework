@@ -1,0 +1,23 @@
+server:
+  port: 8090
+
+
+
+kyee:
+  datasource:
+    config:   #可以写一个或任意多个
+      - uniqueResourceName: hcrm_wechat   #名字必须不同
+        url: jdbc:mysql://202.120.40.105:9003/hcrm_wechat
+        dataSourceType: mysql
+        username: kyee
+        password: kyee
+        basePackage: com.kyee.framework.demo.mutidb.jta.repository.source1  #mybatis扫描路径
+#        flywaySqlLocation: db/hcrm_wechat  #设置次参数则启动flyway,注意首次启动flyway必须保证数据库为空，否则报错
+      - uniqueResourceName: localhost
+        dataSourceType: mysql
+        url: jdbc:mysql://localhost:3306/hcrm_test
+        username: root
+        password: root
+        basePackage: com.kyee.framework.demo.mutidb.jta.repository.source2
+        flywaySqlLocation: db/local
+#      - 更多继续写下去

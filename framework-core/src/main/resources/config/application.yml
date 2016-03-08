@@ -1,0 +1,6 @@
+##spring 会 扫描到 classpath*:/config/application.yml 文件到Environment中去##
+#但是这里的配置会覆盖 classpath: application.yml的配置
+
+#禁用自动配置flyway，否则springboot 会自动配置
+flyway:
+  enabled: false

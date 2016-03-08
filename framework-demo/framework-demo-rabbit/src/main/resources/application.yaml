@@ -1,0 +1,7 @@
+rabbitMq:
+  url: localhost
+  port: 5672
+  userName: test
+  password: test
+  exchange: exchange
+  queueName: cloud

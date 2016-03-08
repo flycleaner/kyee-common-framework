@@ -1,0 +1,22 @@
+kyee:
+  security:
+    expire: 7200  #token有效期
+    token:
+      secretKey: fsnsdijnirf987957BHJkkbjdkUI8B&YGIHHUGYIH87guiv&8fovi8ofv86fV  #生成token的私钥，若无此属性每次开启项目会随机生成一个32byte的私钥
+    session:
+      prior: 1 #  挤掉前面的:1; 不让后面的登陆:0
+      keyPrefix: "session:"
+    userDetailsService:
+      authoritiesByUsernameQuery: "select username,role from t_security_authority where username = ?"
+      usersByUsernameQuery: "select username,password,enabled from t_security_user where username = ?"
+  redis:  #session保存在redis中
+    host: localhost
+#    password: mypassword
+    port: 6379
+    pool:
+      maxIdle: 200
+      minIdle: 10
+      maxWait: 1000
+
+server:
+  port: 8084

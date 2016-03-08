@@ -1,0 +1,10 @@
+kyee:
+  singledb:
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: kyee
+    password: kyee
+
+logging:
+  level:
+    root: WARN
+    com.kyee: DEBUG

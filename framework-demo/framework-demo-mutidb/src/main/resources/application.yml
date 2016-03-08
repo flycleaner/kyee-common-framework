@@ -1,0 +1,28 @@
+server:
+  port: 8089
+
+
+#########
+#第一个数据源将会被配置成首选数据源，第一个数据源的事务也会是首选事务
+#这意味着
+#@Autowire private DataSource dataSource; 将会自动注入第一个数据源
+#@Transactional   默认会使用第一个数据源的事务，即操作第一个数据源的函数事务可以直接使用@Transactional,
+#但是其它数据源必须加上transactionManager的名字，如@Transactional("localManager")或@Transactional(value="localManager")
+kyee:
+  datasource:
+    config:   #可以写一个或任意多个
+      - dbName: hcrm_wechat   #名字必须不同， 第一个为首选数据源
+        url: jdbc:mysql://202.120.40.105:9003/hcrm_wechat
+        username: kyee
+        password: kyee
+        basePackage: com.kyee.framework.demo.mutidb.repository.source1  #mybatis扫描路径
+        txManager: hcrmManager  #事务管理器  使用事务时必须加上这个名字: @Transactional("hcrmManager")
+#        flywaySqlLocation: db/hcrm_wechat  #设置次参数则启动flyway,注意首次启动flyway必须保证数据库为空，否则报错
+      - dbName: localhost
+        url: jdbc:mysql://localhost:3306/hcrm_test
+        username: root
+        password: root
+        basePackage: com.kyee.framework.demo.mutidb.repository.source2
+        txManager: localManager
+        flywaySqlLocation: db/local
+#      - 更多继续写下去
